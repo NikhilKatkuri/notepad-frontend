@@ -1,4 +1,5 @@
 "use client";
+import TextEditor from "@/components/textEditor/textEditor";
 import React, { useEffect, useRef, useState } from "react";
 
 type dimension = {
@@ -81,7 +82,9 @@ export default function Home() {
         <div
           style={{ width: sideWidth }}
           className="bg-white h-full min-w-[600px]"
-        ></div>
+        >
+          <TextEditor/>
+        </div>
         <div
           onMouseDown={handleMouseDown}
           className="h-full bg-black/5 hover:bg-black/[0.07] w-1 cursor-ew-resize"
