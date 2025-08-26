@@ -6,10 +6,26 @@ import Navbar from "../Navbar/Navbar";
 import TextAlign from "@tiptap/extension-text-align";
 
 import Highlight from "@tiptap/extension-highlight";
+import { TaskItem, TaskList } from "@tiptap/extension-list";
 const TiptapEditor = () => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        bulletList: {
+          HTMLAttributes: {
+            class: "list-disc  ml-6",
+          },
+        },
+        orderedList: {
+          HTMLAttributes: {
+            class: "list-decimal  ml-6",
+          },
+        },
+      }),
+      TaskList,
+      TaskItem.configure({
+        nested: true,
+      }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),

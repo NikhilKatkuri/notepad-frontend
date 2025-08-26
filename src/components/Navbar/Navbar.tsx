@@ -48,13 +48,21 @@ function Navbar({ editor }: { editor: ReturnType<typeof useEditor> | null }) {
           </div>
           <Separator orientation="vertical" />
           <div className="flex items-center ">
-            <Toggle aria-label="Toggle italic">
+            <Toggle
+              onClick={() => editor.chain().focus().toggleBulletList().run()}
+              pressed={editor.isActive("bulletList")}
+              aria-label="Toggle bullet list"
+            >
               <List className="h-4 w-4" />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle
+              onClick={() => editor.chain().focus().toggleOrderedList().run()}
+              pressed={editor.isActive("orderedList")}
+              aria-label="Toggle ordered list"
+            >
               <ListOrdered className="h-4 w-4" />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle aria-label="Toggle todo list">
               <ListTodo className="h-4 w-4" />
             </Toggle>
           </div>
