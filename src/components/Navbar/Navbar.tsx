@@ -11,22 +11,38 @@ import {
 } from "lucide-react";
 import { Toggle } from "../ui/toggle";
 import { Button } from "../ui/button";
+import { useEditor } from "@tiptap/react";
 
-function Navbar() {
+function Navbar({ editor }: { editor: ReturnType<typeof useEditor> | null }) {
+  if (!editor) {
+    return null;
+  }
   return (
     <header>
-      <div className="w-full px-3 flex items-center h-12 py-2 justify-between">
+      <div className="w-full   flex items-center h-12 py-2 justify-between">
         <div className="flex items-center gap-2 h-full">
-          <TextDropdownMenu />
+          <TextDropdownMenu editor={editor} />
           <Separator orientation="vertical" />
           <div className="flex items-center ">
-            <Toggle aria-label="Toggle italic">
+            <Toggle
+              onClick={() => editor?.chain().focus().toggleBold().run()}
+              pressed={editor?.isActive("bold")}
+              aria-label="Toggle bold"
+            >
               <Bold className="h-4 w-4" />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle
+              onClick={() => editor?.chain().focus().toggleItalic().run()}
+              pressed={editor?.isActive("italic")}
+              aria-label="Toggle italic"
+            >
               <Italic className="h-4 w-4" />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle
+              onClick={() => editor?.chain().focus().toggleUnderline().run()}
+              pressed={editor?.isActive("underline")}
+              aria-label="Toggle underline"
+            >
               <Underline className="h-4 w-4" />
             </Toggle>
           </div>

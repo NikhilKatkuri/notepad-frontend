@@ -122,6 +122,141 @@
   }
 }
 
-.rich-bg {
-  background: hsl(30 12% 97%);
+/* TipTap Editor Base Styles */
+.tiptap {
+  min-height: 100%;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.tiptap:focus {
+  outline: none;
+}
+
+.tiptap :first-child {
+  margin-top: 0;
+}
+
+.tiptap p {
+  margin: 0.5rem 0;
+}
+
+/* List styles */
+.tiptap ul,
+.tiptap ol {
+  padding: 0 1rem;
+  margin: 1.25rem 1rem 1.25rem 0.4rem;
+}
+
+.tiptap ul li p,
+.tiptap ol li p {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+/* Heading styles */
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  line-height: 1.1; 
+  text-wrap: pretty;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 600;
+}
+
+.tiptap h1 {
+  font-size: 2rem;
+}
+
+.tiptap h2 {
+  font-size: 1.5rem;
+}
+
+.tiptap h3 {
+  font-size: 1.25rem;
+}
+
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  font-size: 1rem;
+}
+
+/* Code and preformatted text styles */
+.tiptap code {
+  background-color: hsl(var(--muted));
+  border-radius: 0.25rem;
+  color: hsl(var(--foreground));
+  font-size: 0.85rem;
+  padding: 0.125rem 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.tiptap pre {
+  background: hsl(var(--muted));
+  border-radius: 0.5rem;
+  color: hsl(var(--foreground));
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+.tiptap pre code {
+  background: none;
+  color: inherit;
+  font-size: 0.875rem;
+  padding: 0;
+}
+
+.tiptap mark {
+  background-color: #fef08a;
+  border-radius: 0.25rem;
+  box-decoration-break: clone;
+  padding: 0.125rem 0.25rem;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid hsl(var(--border));
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 2rem 0;
+}
+
+/* Strong and emphasis */
+.tiptap strong {
+  font-weight: 600;
+}
+
+.tiptap em {
+  font-style: italic;
+}
+
+/* Links */
+.tiptap a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tiptap a:hover {
+  text-decoration: none;
+}
+
+/* Focus styles for better accessibility */
+.tiptap:focus-within {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }
